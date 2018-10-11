@@ -20,6 +20,8 @@
 		5FF8411E216E20C700DB4BE3 /* Cryptify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */; };
 		5FF8411F216E2A9000DB4BE3 /* Cryptify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */; };
 		5FF84120216E2A9000DB4BE3 /* Cryptify.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5FF84125216F340000DB4BE3 /* Decryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF84124216F340000DB4BE3 /* Decryptor.swift */; };
+		5FF84127216F340700DB4BE3 /* Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF84126216F340700DB4BE3 /* Encryptor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		5FF84114216E206F00DB4BE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FF84117216E206F00DB4BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FF84119216E206F00DB4BE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FF84124216F340000DB4BE3 /* Decryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decryptor.swift; sourceTree = "<group>"; };
+		5FF84126216F340700DB4BE3 /* Encryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryptor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 				5F1925EB216DE02500FB93C1 /* Cryptify.h */,
 				5F192602216DE03A00FB93C1 /* Cryptify.swift */,
 				5F192604216DE2FD00FB93C1 /* KeyStore.swift */,
+				5FF84126216F340700DB4BE3 /* Encryptor.swift */,
+				5FF84124216F340000DB4BE3 /* Decryptor.swift */,
 				5F192606216DED7200FB93C1 /* Utils */,
 				5F1925EC216DE02500FB93C1 /* Info.plist */,
 			);
@@ -257,9 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF84125216F340000DB4BE3 /* Decryptor.swift in Sources */,
 				5F192608216DED7A00FB93C1 /* KeyType.swift in Sources */,
 				5F192603216DE03A00FB93C1 /* Cryptify.swift in Sources */,
 				5F19260A216DF9DF00FB93C1 /* ErrorType.swift in Sources */,
+				5FF84127216F340700DB4BE3 /* Encryptor.swift in Sources */,
 				5F192605216DE2FD00FB93C1 /* KeyStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

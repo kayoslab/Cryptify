@@ -19,22 +19,30 @@
 
 import Foundation
 
-@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public enum KeyGenerationError: Error {
-    
+@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public enum KeyStoreError: Error {
+    /// Please check the given key length. It might exceed the
+    /// boundaries for the specified key type.
     case malformedKeyLength
     /// Please check the given tag. It might be malformed or empty.
     /// This error is raised when trying to create a data object
     /// by using the UTF-8 encoding. Usually this is due to an empty
     /// tag string.
     case malformedTag
-    
-    case unexpectedRetriveStatus(with: OSStatus)
-    /// When creating a new Private key for a given tag, any existing key
-    /// with the same tag will be deleted. This can possibly fail due to
+    /// When deleting an existing key, this can possibly fail due to
     /// different reasons (e.g. missing permissions, missing disk space).
     /// If this happens, this error is raised, containing the exact status
     /// why this happened. Check for the OSStatus for clarification.
     case unexpectedDeletionStatus(with: OSStatus)
+    /// When storing a new key, this can possibly fail due to
+    /// different reasons (e.g. missing permissions, missing disk space).
+    /// If this happens, this error is raised, containing the exact status
+    /// why this happened. Check for the OSStatus for clarification.
+    case unexpectedCreationStatus(with: OSStatus)
+    /// When retriving an existing key, this can possibly fail due to
+    /// different reasons (e.g. missing permissions, missing disk space).
+    /// If this happens, this error is raised, containing the exact status
+    /// why this happened. Check for the OSStatus for clarification.
+    case unexpectedRetriveStatus(with: OSStatus)
     /// The system returned nil while trying to generate a access control
     /// object without throwing a reasonable error. This should not happen
     /// and seems to be rather weird. Please try to raise a bug with some
@@ -45,4 +53,9 @@ import Foundation
     /// seems to be rather weird. Please try to raise a bug with some
     /// reasonable information about your environment. Thank you.
     case unexpectedPrivateKeyNil
+    /// The system returned nil while trying to generate a public key
+    /// without throwing a reasonable error. This should not happen and
+    /// seems to be rather weird. Please try to raise a bug with some
+    /// reasonable information about your environment. Thank you.
+    case unexpectedPublicKeyNil
 }

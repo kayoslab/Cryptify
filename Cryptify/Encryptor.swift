@@ -17,22 +17,19 @@
  *
  */
 
-import UIKit
-import Cryptify
+import Foundation
+import Security
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        do {
-            try Cryptify.shared.generateForKeychain(with: "test")
-            try Cryptify.shared.getPublicKey(with: "test")
-        } catch {
-            dump(error)
+class Encryptor {
+    func encrypt(data: Data, with publicKey: String, algorithm: SecKeyAlgorithm = .eciesEncryptionStandardX963SHA256AESGCM, tag: String, type: KeyType) throws -> CFData? {
+        guard let publicKey = try KeyStore.foreignPublicKey(with: publicKey, tag: tag, type: type) else { return nil }
+        
+        var error: Unmanaged<CFError>?
+        guard let data = SecKeyCreateEncryptedData(publicKey, algorithm, data as CFData, &error) else {
+            guard let error = error else { throw KeyStoreError.unexpectedAccessControlNil }
+            throw error.takeRetainedValue() as Error
         }
+        
+        return data
     }
-
-
 }
-

@@ -17,22 +17,9 @@
  *
  */
 
-import UIKit
-import Cryptify
+import Foundation
+import Security
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        do {
-            try Cryptify.shared.generateForKeychain(with: "test")
-            try Cryptify.shared.getPublicKey(with: "test")
-        } catch {
-            dump(error)
-        }
-    }
-
-
+class Decryptor {
+    
 }
-

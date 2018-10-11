@@ -21,7 +21,6 @@ import Foundation
 
 /// Basic public interface of the Cryptify framework.
 @available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public class Cryptify {
-    let keyStore = try? KeyStore(with: "tag")
     /// Singleton interface of the Cryptify framework to prevent
     /// any concurrent usage of the Key generation.
     public static var shared: Cryptify = .init()
@@ -31,19 +30,16 @@ import Foundation
     private init() { }
     
     public func generateForKeychain(with tag: String, type: KeyType = .ECSECRandom, keyLength length: Int = 256) throws {
-        try keyStore?.generateForKeychain(with: type, keyLength: length)
+        try KeyStore.generatePrivateKeyForKeychain(with: tag)
     }
     
-    public func generateForEnclave(with tag: String) throws {
-        try keyStore?.generateForEnclave()
-    }
-    
-    public func deletePublicKey() throws {
-        try keyStore?.delete()
-    }
-    
-    public func getPublicKey() throws {
-        let pub = try keyStore?.retrieve()
+    public func getPublicKey(with tag: String) throws {
+        let pubRaw = try KeyStore.generateRawPublicKeyForPrivateKey(with: tag)
+        let pub = try KeyStore.generatePublicKeyForPrivateKey(with: tag)
+        let retrive = try KeyStore.foreignPublicKey(with: pubRaw ?? "", tag: tag, type: .RSA)
+        
         dump(pub)
+        dump(pubRaw)
+        dump(retrive)
     }
 }
