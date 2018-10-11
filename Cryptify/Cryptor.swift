@@ -44,7 +44,7 @@ class Cryptor {
     }
     
     
-    static func encrypt(data: Data, with publicKey: String, algorithm: SecKeyAlgorithm = .eciesEncryptionStandardX963SHA256AESGCM, tag: String, type: KeyType = .ECSECRandom) throws -> CFData? {
+    static func encrypt(data: Data, with publicKey: String, algorithm: SecKeyAlgorithm = .eciesEncryptionStandardX963SHA256AESGCM, tag: String, type: KeyType = .ECSECRandom) throws -> Data? {
         guard let publicKey = try KeyStore.foreignPublicKey(with: publicKey, tag: tag, type: type) else {
             throw EncryptionError.publicKeyError
         }
@@ -58,7 +58,7 @@ class Cryptor {
             throw error.takeRetainedValue() as Error
         }
         
-        return data
+        return data as Data
     }
 
     
@@ -69,6 +69,7 @@ class Cryptor {
         guard SecKeyIsAlgorithmSupported(privateKey, .decrypt, algorithm) else {
             throw EncryptionError.unsupportedAlgorithm
         }
+        
         var error: Unmanaged<CFError>?
         guard let plainText = SecKeyCreateDecryptedData(privateKey, algorithm, cipherText as CFData, &error) as Data? else {
             guard let error = error else { throw EncryptionError.unexpectedDataDecryptionError }

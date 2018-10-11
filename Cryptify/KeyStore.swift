@@ -189,28 +189,10 @@ import Security
     ///            the given tag, the function returns nil.
     /// - Throws: Can throw a KeyStoreError if an unexpected retrive status is reached or the
     ///           Provided tag is malformed.
-    static func generatePublicKeyForPrivateKey(with tag: String) throws -> SecKey? {
-        // Be sure that you don’t generate multiple, identically tagged keys.
-        // These are difficult to tell apart during retrieval, unless they differ in some other,
-        // searchable characteristic. Instead, use a unique tag for each key generation operation,
-        // or delete old keys with a given tag.
-        guard tag.count > 0, let tagData = tag.data(using: .utf8) else { throw KeyStoreError.malformedTag }
+    private static func generatePublicKeyForPrivateKey(with tag: String) throws -> SecKey? {
+        guard let privateKey = try KeyStore.retrivePrivateKey(with: tag) else { return nil }
+        let publicKey = SecKeyCopyPublicKey(privateKey)
         
-        var privateKey: CFTypeRef?
-        let retrieveQuerry: [String: Any] = [kSecAttrApplicationTag as String: tagData,
-                                             kSecClass as String: kSecClassKey,
-                                             kSecAttrKeyClass as String: kSecAttrKeyClassPrivate,
-                                             kSecReturnRef as String: true]
-        
-        let status = SecItemCopyMatching(retrieveQuerry as CFDictionary, &privateKey)
-        guard status != errSecItemNotFound else { return nil }
-        guard status == errSecSuccess else { throw KeyStoreError.unexpectedRetriveStatus(with: status) }
-
-        // I hate force unwrapping this, but since this is a CoreFoundation downcast
-        // conditional downcasting always succeeds and therefore doesn't work here.
-        // Let's prey this changes within upcoming swift versions.
-        guard privateKey != nil else { return nil }
-        let publicKey = SecKeyCopyPublicKey(privateKey as! SecKey)
         return publicKey
     }
     
@@ -225,26 +207,7 @@ import Security
     /// - Throws: Can throw a KeyStoreError if an unexpected retrive status is reached or the
     ///           Provided tag is malformed.
     static func generateRawPublicKeyForPrivateKey(with tag: String) throws -> String? {
-        // Be sure that you don’t generate multiple, identically tagged keys.
-        // These are difficult to tell apart during retrieval, unless they differ in some other,
-        // searchable characteristic. Instead, use a unique tag for each key generation operation,
-        // or delete old keys with a given tag.
-        guard tag.count > 0, let tagData = tag.data(using: .utf8) else { throw KeyStoreError.malformedTag }
-        
-        var privateKey: CFTypeRef?
-        let retrieveQuerry: [String: Any] = [kSecAttrApplicationTag as String: tagData,
-                                             kSecClass as String: kSecClassKey,
-                                             kSecAttrKeyClass as String: kSecAttrKeyClassPrivate,
-                                             kSecReturnRef as String: true]
-        
-        let status = SecItemCopyMatching(retrieveQuerry as CFDictionary, &privateKey)
-        guard status != errSecItemNotFound else { return nil }
-        guard status == errSecSuccess else { throw KeyStoreError.unexpectedRetriveStatus(with: status) }
-        
-        // I hate force unwrapping this, but since this is a CoreFoundation downcast
-        // conditional downcasting always succeeds and therefore doesn't work here.
-        // Let's prey this changes within upcoming swift versions.
-        guard let publicKey = SecKeyCopyPublicKey(privateKey as! SecKey) else { return nil }
+        guard let publicKey = try KeyStore.generatePublicKeyForPrivateKey(with: tag) else { return nil }
         
         var error: Unmanaged<CFError>?
         guard let data = SecKeyCopyExternalRepresentation(publicKey, &error) else {

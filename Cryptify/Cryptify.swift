@@ -33,15 +33,15 @@ import Foundation
         try KeyStore.generatePrivateKeyForKeychain(with: tag)
     }
     
-    public func getPublicKey(with tag: String) throws {
+    public func encryptDecryptTest(with tag: String) throws {
         let publicKey = try KeyStore.generateRawPublicKeyForPrivateKey(with: tag)
-        // let encryptedMessage = try Cryptor.encrypt(plainText: Cryptify.lorem, with: publicKey ?? "", tag: tag)
-        guard let data = lorem.data(using: .utf8) else { return }
-        guard let encryptedData = try Cryptor.encrypt(data: data, with: publicKey ?? "", tag: tag) else { return }
-        dump(encryptedData)
+
+        guard let data = lorem.data(using: .utf8),
+                let encryptedData = try Cryptor.encrypt(data: data, with: publicKey ?? "", tag: tag) else { return }
         
-        guard let decryptedData = try Cryptor.decrypt(cipherText: encryptedData as Data, tag: tag) else { return }
-        let string = String(data: decryptedData, encoding: .utf8)
+        guard let decryptedData = try Cryptor.decrypt(cipherText: encryptedData, tag: tag),
+                let string = String(data: decryptedData, encoding: .utf8) else { return }
+        
         dump(string)
     }
 }
