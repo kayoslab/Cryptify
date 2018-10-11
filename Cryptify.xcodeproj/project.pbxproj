@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F1925F2216DE02600FB93C1 /* Cryptify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */; };
-		5F1925F7216DE02600FB93C1 /* CryptifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1925F6216DE02600FB93C1 /* CryptifyTests.swift */; };
 		5F1925F9216DE02600FB93C1 /* Cryptify.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F1925EB216DE02500FB93C1 /* Cryptify.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F192603216DE03A00FB93C1 /* Cryptify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192602216DE03A00FB93C1 /* Cryptify.swift */; };
+		5F192605216DE2FD00FB93C1 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192604216DE2FD00FB93C1 /* KeyStore.swift */; };
+		5F192608216DED7A00FB93C1 /* KeyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192607216DED7A00FB93C1 /* KeyType.swift */; };
+		5F19260A216DF9DF00FB93C1 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192609216DF9DF00FB93C1 /* ErrorType.swift */; };
+		5FF8410E216E206D00DB4BE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8410D216E206D00DB4BE3 /* AppDelegate.swift */; };
+		5FF84110216E206D00DB4BE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8410F216E206D00DB4BE3 /* ViewController.swift */; };
+		5FF84113216E206D00DB4BE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF84111216E206D00DB4BE3 /* Main.storyboard */; };
+		5FF84115216E206F00DB4BE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF84114216E206F00DB4BE3 /* Assets.xcassets */; };
+		5FF84118216E206F00DB4BE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF84116216E206F00DB4BE3 /* LaunchScreen.storyboard */; };
+		5FF8411E216E20C700DB4BE3 /* Cryptify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */; };
+		5FF8411F216E2A9000DB4BE3 /* Cryptify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */; };
+		5FF84120216E2A9000DB4BE3 /* Cryptify.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5F1925F3216DE02600FB93C1 /* PBXContainerItemProxy */ = {
+		5FF84121216E2A9000DB4BE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5F1925DF216DE02500FB93C1 /* Project object */;
 			proxyType = 1;
@@ -22,13 +32,35 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5FF84123216E2A9000DB4BE3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5FF84120216E2A9000DB4BE3 /* Cryptify.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5F1925E8216DE02500FB93C1 /* Cryptify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cryptify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F1925EB216DE02500FB93C1 /* Cryptify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cryptify.h; sourceTree = "<group>"; };
 		5F1925EC216DE02500FB93C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F1925F1216DE02600FB93C1 /* CryptifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F1925F6216DE02600FB93C1 /* CryptifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptifyTests.swift; sourceTree = "<group>"; };
-		5F1925F8216DE02600FB93C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F192602216DE03A00FB93C1 /* Cryptify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptify.swift; sourceTree = "<group>"; };
+		5F192604216DE2FD00FB93C1 /* KeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
+		5F192607216DED7A00FB93C1 /* KeyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyType.swift; sourceTree = "<group>"; };
+		5F192609216DF9DF00FB93C1 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		5FF8410B216E206D00DB4BE3 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF8410D216E206D00DB4BE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5FF8410F216E206D00DB4BE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5FF84112216E206D00DB4BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5FF84114216E206F00DB4BE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5FF84117216E206F00DB4BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5FF84119216E206F00DB4BE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,11 +71,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5F1925EE216DE02600FB93C1 /* Frameworks */ = {
+		5FF84108216E206D00DB4BE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F1925F2216DE02600FB93C1 /* Cryptify.framework in Frameworks */,
+				5FF8411F216E2A9000DB4BE3 /* Cryptify.framework in Frameworks */,
+				5FF8411E216E20C700DB4BE3 /* Cryptify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,8 +87,9 @@
 			isa = PBXGroup;
 			children = (
 				5F1925EA216DE02500FB93C1 /* Cryptify */,
-				5F1925F5216DE02600FB93C1 /* CryptifyTests */,
+				5FF8410C216E206D00DB4BE3 /* TestApp */,
 				5F1925E9216DE02500FB93C1 /* Products */,
+				5FF8411D216E20C700DB4BE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				5F1925E8216DE02500FB93C1 /* Cryptify.framework */,
-				5F1925F1216DE02600FB93C1 /* CryptifyTests.xctest */,
+				5FF8410B216E206D00DB4BE3 /* TestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,18 +106,41 @@
 			isa = PBXGroup;
 			children = (
 				5F1925EB216DE02500FB93C1 /* Cryptify.h */,
+				5F192602216DE03A00FB93C1 /* Cryptify.swift */,
+				5F192604216DE2FD00FB93C1 /* KeyStore.swift */,
+				5F192606216DED7200FB93C1 /* Utils */,
 				5F1925EC216DE02500FB93C1 /* Info.plist */,
 			);
 			path = Cryptify;
 			sourceTree = "<group>";
 		};
-		5F1925F5216DE02600FB93C1 /* CryptifyTests */ = {
+		5F192606216DED7200FB93C1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				5F1925F6216DE02600FB93C1 /* CryptifyTests.swift */,
-				5F1925F8216DE02600FB93C1 /* Info.plist */,
+				5F192607216DED7A00FB93C1 /* KeyType.swift */,
+				5F192609216DF9DF00FB93C1 /* ErrorType.swift */,
 			);
-			path = CryptifyTests;
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5FF8410C216E206D00DB4BE3 /* TestApp */ = {
+			isa = PBXGroup;
+			children = (
+				5FF8410D216E206D00DB4BE3 /* AppDelegate.swift */,
+				5FF8410F216E206D00DB4BE3 /* ViewController.swift */,
+				5FF84111216E206D00DB4BE3 /* Main.storyboard */,
+				5FF84116216E206F00DB4BE3 /* LaunchScreen.storyboard */,
+				5FF84114216E206F00DB4BE3 /* Assets.xcassets */,
+				5FF84119216E206F00DB4BE3 /* Info.plist */,
+			);
+			path = TestApp;
+			sourceTree = "<group>";
+		};
+		5FF8411D216E20C700DB4BE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,23 +175,24 @@
 			productReference = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5F1925F0216DE02600FB93C1 /* CryptifyTests */ = {
+		5FF8410A216E206D00DB4BE3 /* TestApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F1925FF216DE02600FB93C1 /* Build configuration list for PBXNativeTarget "CryptifyTests" */;
+			buildConfigurationList = 5FF8411A216E206F00DB4BE3 /* Build configuration list for PBXNativeTarget "TestApp" */;
 			buildPhases = (
-				5F1925ED216DE02600FB93C1 /* Sources */,
-				5F1925EE216DE02600FB93C1 /* Frameworks */,
-				5F1925EF216DE02600FB93C1 /* Resources */,
+				5FF84107216E206D00DB4BE3 /* Sources */,
+				5FF84108216E206D00DB4BE3 /* Frameworks */,
+				5FF84109216E206D00DB4BE3 /* Resources */,
+				5FF84123216E2A9000DB4BE3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5F1925F4216DE02600FB93C1 /* PBXTargetDependency */,
+				5FF84122216E2A9000DB4BE3 /* PBXTargetDependency */,
 			);
-			name = CryptifyTests;
-			productName = CryptifyTests;
-			productReference = 5F1925F1216DE02600FB93C1 /* CryptifyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = TestApp;
+			productName = TestApp;
+			productReference = 5FF8410B216E206D00DB4BE3 /* TestApp.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -148,8 +206,9 @@
 				TargetAttributes = {
 					5F1925E7216DE02500FB93C1 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
-					5F1925F0216DE02600FB93C1 = {
+					5FF8410A216E206D00DB4BE3 = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
@@ -160,6 +219,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 5F1925DE216DE02500FB93C1;
 			productRefGroup = 5F1925E9216DE02500FB93C1 /* Products */;
@@ -167,7 +227,7 @@
 			projectRoot = "";
 			targets = (
 				5F1925E7216DE02500FB93C1 /* Cryptify */,
-				5F1925F0216DE02600FB93C1 /* CryptifyTests */,
+				5FF8410A216E206D00DB4BE3 /* TestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -180,10 +240,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5F1925EF216DE02600FB93C1 /* Resources */ = {
+		5FF84109216E206D00DB4BE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF84118216E206F00DB4BE3 /* LaunchScreen.storyboard in Resources */,
+				5FF84115216E206F00DB4BE3 /* Assets.xcassets in Resources */,
+				5FF84113216E206D00DB4BE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,26 +257,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F192608216DED7A00FB93C1 /* KeyType.swift in Sources */,
+				5F192603216DE03A00FB93C1 /* Cryptify.swift in Sources */,
+				5F19260A216DF9DF00FB93C1 /* ErrorType.swift in Sources */,
+				5F192605216DE2FD00FB93C1 /* KeyStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5F1925ED216DE02600FB93C1 /* Sources */ = {
+		5FF84107216E206D00DB4BE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F1925F7216DE02600FB93C1 /* CryptifyTests.swift in Sources */,
+				5FF84110216E206D00DB4BE3 /* ViewController.swift in Sources */,
+				5FF8410E216E206D00DB4BE3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5F1925F4216DE02600FB93C1 /* PBXTargetDependency */ = {
+		5FF84122216E2A9000DB4BE3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5F1925E7216DE02500FB93C1 /* Cryptify */;
-			targetProxy = 5F1925F3216DE02600FB93C1 /* PBXContainerItemProxy */;
+			targetProxy = 5FF84121216E2A9000DB4BE3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5FF84111216E206D00DB4BE3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FF84112216E206D00DB4BE3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5FF84116216E206F00DB4BE3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FF84117216E206F00DB4BE3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5F1925FA216DE02600FB93C1 /* Debug */ = {
@@ -341,10 +428,11 @@
 		5F1925FD216DE02600FB93C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 84YC6V65C5;
+				DEVELOPMENT_TEAM = C5HCUYE57C;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -357,7 +445,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.cr0ss.Cryptify;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,10 +456,11 @@
 		5F1925FE216DE02600FB93C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 84YC6V65C5;
+				DEVELOPMENT_TEAM = C5HCUYE57C;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -382,42 +473,45 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.cr0ss.Cryptify;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		5F192600216DE02600FB93C1 /* Debug */ = {
+		5FF8411B216E206F00DB4BE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 84YC6V65C5;
-				INFOPLIST_FILE = CryptifyTests/Info.plist;
+				DEVELOPMENT_TEAM = C5HCUYE57C;
+				INFOPLIST_FILE = TestApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.cr0ss.CryptifyTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cr0ss.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		5F192601216DE02600FB93C1 /* Release */ = {
+		5FF8411C216E206F00DB4BE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 84YC6V65C5;
-				INFOPLIST_FILE = CryptifyTests/Info.plist;
+				DEVELOPMENT_TEAM = C5HCUYE57C;
+				INFOPLIST_FILE = TestApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.cr0ss.CryptifyTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cr0ss.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -445,11 +539,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F1925FF216DE02600FB93C1 /* Build configuration list for PBXNativeTarget "CryptifyTests" */ = {
+		5FF8411A216E206F00DB4BE3 /* Build configuration list for PBXNativeTarget "TestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5F192600216DE02600FB93C1 /* Debug */,
-				5F192601216DE02600FB93C1 /* Release */,
+				5FF8411B216E206F00DB4BE3 /* Debug */,
+				5FF8411C216E206F00DB4BE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

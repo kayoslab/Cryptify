@@ -17,14 +17,24 @@
  *
  */
 
-#import <UIKit/UIKit.h>
+import UIKit
+import Cryptify
 
-//! Project version number for Cryptify.
-FOUNDATION_EXPORT double CryptifyVersionNumber;
+class ViewController: UIViewController {
 
-//! Project version string for Cryptify.
-FOUNDATION_EXPORT const unsigned char CryptifyVersionString[];
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        do {
+//            try Cryptify.shared.generateForKeychain(with: "test", type: .RSA, keyLength: 8192)
+//            try Cryptify.shared.generateForEnclave(with: "test")
+//            try Cryptify.shared.deletePublicKey()
+//            try Cryptify.shared.getPublicKey()
+        } catch {
+            dump(error)
+        }
+    }
 
-// In this header, you should import all the public headers of your framework using statements like #import <Cryptify/PublicHeader.h>
 
+}
 
