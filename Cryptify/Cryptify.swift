@@ -34,12 +34,17 @@ import Foundation
     }
     
     public func getPublicKey(with tag: String) throws {
-        let pubRaw = try KeyStore.generateRawPublicKeyForPrivateKey(with: tag)
-        let pub = try KeyStore.generatePublicKeyForPrivateKey(with: tag)
-        let retrive = try KeyStore.foreignPublicKey(with: pubRaw ?? "", tag: tag, type: .RSA)
+        let publicKey = try KeyStore.generateRawPublicKeyForPrivateKey(with: tag)
+        // let encryptedMessage = try Cryptor.encrypt(plainText: Cryptify.lorem, with: publicKey ?? "", tag: tag)
+        guard let data = lorem.data(using: .utf8) else { return }
+        guard let encryptedData = try Cryptor.encrypt(data: data, with: publicKey ?? "", tag: tag) else { return }
+        dump(encryptedData)
         
-        dump(pub)
-        dump(pubRaw)
-        dump(retrive)
+        guard let decryptedData = try Cryptor.decrypt(cipherText: encryptedData as Data, tag: tag) else { return }
+        let string = String(data: decryptedData, encoding: .utf8)
+        dump(string)
     }
 }
+
+/// An example string for general usage
+private let lorem: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sodales accumsan lorem, at porttitor sapien venenatis non. Phasellus mollis tincidunt purus at fermentum. Sed posuere mi at felis finibus, eget luctus turpis aliquam. Donec condimentum convallis tellus, at lacinia quam placerat quis. Nunc lectus orci, egestas eu rhoncus a, fringilla ut diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec vehicula tempor eleifend. Aenean turpis tortor, facilisis nec iaculis et, suscipit quis massa. Curabitur vitae euismod dui, et accumsan nibh. In hac habitasse platea dictumst. Curabitur finibus ut risus in venenatis."

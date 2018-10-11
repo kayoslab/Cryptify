@@ -59,3 +59,11 @@ import Foundation
     /// reasonable information about your environment. Thank you.
     case unexpectedPublicKeyNil
 }
+
+@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public enum EncryptionError: Error {
+    case publicKeyError
+    case unsupportedAlgorithm
+    case unsupportedLength
+    case unexpectedDataEncryptionError
+    case unexpectedDataDecryptionError
+}

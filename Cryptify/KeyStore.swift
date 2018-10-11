@@ -150,6 +150,35 @@ import Security
         }
     }
     
+    /// Retrives a private key that is stored into the secure enclave or the keychain.
+    ///
+    /// - Parameters:
+    ///   - tag: A unique identifier which was used to store the private key into the keychain.
+    /// - Throws: Can throw a KeyStoreError if an unexpected deletion status is reached or the
+    ///           Provided tag is malformed.
+    static func retrivePrivateKey(with tag: String) throws -> SecKey? {
+        // Be sure that you don’t generate multiple, identically tagged keys.
+        // These are difficult to tell apart during retrieval, unless they differ in some other,
+        // searchable characteristic. Instead, use a unique tag for each key generation operation,
+        // or delete old keys with a given tag.
+        guard tag.count > 0, let tagData = tag.data(using: .utf8) else { throw KeyStoreError.malformedTag }
+        
+        var privateKey: CFTypeRef?
+        let retrieveQuerry: [String: Any] = [kSecAttrApplicationTag as String: tagData,
+                                             kSecClass as String: kSecClassKey,
+                                             kSecAttrKeyClass as String: kSecAttrKeyClassPrivate,
+                                             kSecReturnRef as String: true]
+        
+        let status = SecItemCopyMatching(retrieveQuerry as CFDictionary, &privateKey)
+        guard status != errSecItemNotFound else { return nil }
+        guard status == errSecSuccess else { throw KeyStoreError.unexpectedRetriveStatus(with: status) }
+        
+        // I hate force unwrapping this, but since this is a CoreFoundation downcast
+        // conditional downcasting always succeeds and therefore doesn't work here.
+        // Let's prey this changes within upcoming swift versions.
+        guard privateKey != nil else { return nil }
+        return (privateKey as! SecKey)
+    }
     
     /// Retrives an optional public key reference to a stored private key from the keychain
     /// by using the tag as a unique identifier
@@ -180,6 +209,7 @@ import Security
         // I hate force unwrapping this, but since this is a CoreFoundation downcast
         // conditional downcasting always succeeds and therefore doesn't work here.
         // Let's prey this changes within upcoming swift versions.
+        guard privateKey != nil else { return nil }
         let publicKey = SecKeyCopyPublicKey(privateKey as! SecKey)
         return publicKey
     }
@@ -323,7 +353,7 @@ extension KeyStore {
     }
     
     
-    /// Retrives a foreign public key from the Keychain
+    /// Retrives a foreign public key from the Keychain.
     ///
     /// - Parameters:
     ///   - tag: A unique identifier which will be used to retrive the public key from the keychain.
@@ -331,7 +361,7 @@ extension KeyStore {
     ///           The current default is Eliptic Curves.
     /// - Throws: Can throw a KeyStoreError in case an unexpected retrive status occurs
     ///           while trying to fetch the public key.
-    private static func retrieveForeignPublicKey(with tag: String, type: KeyType = .ECSECRandom) throws -> SecKey? {
+    static func retrieveForeignPublicKey(with tag: String, type: KeyType = .ECSECRandom) throws -> SecKey? {
         // Be sure that you don’t generate multiple, identically tagged keys.
         // These are difficult to tell apart during retrieval, unless they differ in some other,
         // searchable characteristic. Instead, use a unique tag for each key generation operation,
