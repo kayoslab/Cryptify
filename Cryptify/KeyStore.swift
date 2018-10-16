@@ -238,8 +238,10 @@ extension KeyStore {
     ///           random key generation when thrown by `SecKeyCreateRandomKey`. Consider the
     ///           Apple Security Framework documentation for non specified errors thrown within
     ///           this function.
-    static func foreignPublicKey(with key: String, tag: String, type: KeyType = .ECSECRandom) throws -> SecKey? {
-        try KeyStore.storeForeignPublicKey(key: key, with: tag, type: type)
+    static func foreignPublicKey(with key: String? = nil, tag: String, type: KeyType = .ECSECRandom) throws -> SecKey? {
+        if let key = key {
+            try KeyStore.storeForeignPublicKey(key: key, with: tag, type: type)
+        }
         let retrive = try KeyStore.retrieveForeignPublicKey(with: tag, type: type)
         
         return retrive
@@ -324,7 +326,7 @@ extension KeyStore {
     ///           The current default is Eliptic Curves.
     /// - Throws: Can throw a KeyStoreError in case an unexpected retrive status occurs
     ///           while trying to fetch the public key.
-    static func retrieveForeignPublicKey(with tag: String, type: KeyType = .ECSECRandom) throws -> SecKey? {
+    private static func retrieveForeignPublicKey(with tag: String, type: KeyType = .ECSECRandom) throws -> SecKey? {
         // Be sure that you don’t generate multiple, identically tagged keys.
         // These are difficult to tell apart during retrieval, unless they differ in some other,
         // searchable characteristic. Instead, use a unique tag for each key generation operation,

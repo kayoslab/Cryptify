@@ -36,6 +36,10 @@ import Security
         }
     }
     
+    /// Use this to check if the specified key length is not reaching
+    /// the system's boundaries for maximum key lenth. This is currently
+    /// hardcoded, even though you'd expect this to be available via an
+    /// API. WHY?
     func maxKeyLength() -> Int {
         switch self {
             case .RSA: return 8192

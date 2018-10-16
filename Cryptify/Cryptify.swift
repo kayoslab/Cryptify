@@ -29,7 +29,7 @@ import Foundation
     /// since this class will solely be a singleton implementation.
     private init() { }
     
-    public func generateForKeychain(with tag: String, type: KeyType = .ECSECRandom, keyLength length: Int = 256) throws {
+    public func generateKey(with tag: String, type: KeyType = .ECSECRandom, keyLength length: Int = 256) throws {
         try KeyStore.generatePrivateKeyForKeychain(with: tag)
     }
     
@@ -37,12 +37,23 @@ import Foundation
         let publicKey = try KeyStore.generateRawPublicKeyForPrivateKey(with: tag)
 
         guard let data = lorem.data(using: .utf8),
-                let encryptedData = try Cryptor.encrypt(data: data, with: publicKey ?? "", tag: tag) else { return }
+                let encryptedData = try Cryptor.encrypt(data: data, with: publicKey ?? "", tag: tag) else {
+                    print("The encryption raised an error, please investigate")
+                    return
+        }
         
         guard let decryptedData = try Cryptor.decrypt(cipherText: encryptedData, tag: tag),
-                let string = String(data: decryptedData, encoding: .utf8) else { return }
+                let plainText = String(data: decryptedData, encoding: .utf8) else {
+                    print("The decryption raised an error, please investigate")
+                    return
+        }
         
-        dump(string)
+        print("The data was succesfully encrypted and decrypted.")
+        if lorem == plainText {
+            print("Everything worked fine! ✅")
+        } else {
+            print("Something went wrong! ⚠️")
+        }
     }
 }
 

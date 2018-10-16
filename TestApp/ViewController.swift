@@ -26,8 +26,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         do {
-            try Cryptify.shared.generateForKeychain(with: "test")
-            try Cryptify.shared.encryptDecryptTest(with: "test")
+            try Cryptify.shared.generateKey(with: "ExampleGroup.ExampleTag.ExampleUser")
+            try Cryptify.shared.encryptDecryptTest(with: "ExampleGroup.ExampleTag.ExampleUser")
         } catch {
             dump(error)
         }

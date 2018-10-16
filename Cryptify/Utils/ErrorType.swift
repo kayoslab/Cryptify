@@ -60,10 +60,31 @@ import Foundation
     case unexpectedPublicKeyNil
 }
 
-@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public enum EncryptionError: Error {
-    case publicKeyError
+@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public enum CryptorError: Error {
+    /// An error occured while trying to retrive a public key with a
+    /// specified tag. Either the tag was not correct, the key wasn't
+    /// stored into the keychain properly or something else went wrong.
+    case publicKeyRetriveError
+    /// An error occured while trying to retrive a private key with a
+    /// specified tag. Either the tag was not correct, the key wasn't
+    /// stored into the keychain properly or something else went wrong.
+    case privateKeyRetriveError
+    /// The given algorithm, specified for encryption / decryption is
+    /// not supported by the current device. Please specify a different
+    /// algorithm.
     case unsupportedAlgorithm
+    /// The length of the given data is not supported. This might happen
+    /// du to a missing splitting before running the encryption process.
+    /// Please check the input data.
     case unsupportedLength
+    /// The system returned nil while trying to encrypt the given data
+    /// without throwing a reasonable error. This should not happen and
+    /// seems to be rather weird. Please try to raise a bug with some
+    /// reasonable information about your environment. Thank you.
     case unexpectedDataEncryptionError
+    /// The system returned nil while trying to decrypt the given data
+    /// without throwing a reasonable error. This should not happen and
+    /// seems to be rather weird. Please try to raise a bug with some
+    /// reasonable information about your environment. Thank you.
     case unexpectedDataDecryptionError
 }
