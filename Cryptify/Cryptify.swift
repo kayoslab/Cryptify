@@ -20,7 +20,8 @@
 import Foundation
 
 /// Basic public interface of the Cryptify framework.
-@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public class Cryptify {
+public class Cryptify {
+    
     /// Singleton interface of the Cryptify framework to prevent
     /// any concurrent usage of the Key generation.
     public static var shared: Cryptify = .init()
@@ -29,7 +30,7 @@ import Foundation
     /// since this class will solely be a singleton implementation.
     private init() { }
     
-    public func generateKey(with tag: String, type: KeyType = .ECSECRandom, keyLength length: Int = 256) throws {
+    public func generateKey(with tag: String, type: KeyType = KeyTypeECSECRandom, keyLength length: Int = 256) throws {
         try KeyStore.generatePrivateKeyForKeychain(with: tag)
     }
     

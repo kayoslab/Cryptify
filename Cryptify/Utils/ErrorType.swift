@@ -20,6 +20,10 @@
 import Foundation
 
 @available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public enum KeyStoreError: Error {
+    /// Please check the given key type. It might be the case
+    /// that it was configured for a different platform. Please
+    /// validate with other available key types or raise a bug.
+    case malformedKeyType
     /// Please check the given key length. It might exceed the
     /// boundaries for the specified key type.
     case malformedKeyLength

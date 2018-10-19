@@ -20,31 +20,36 @@
 import Foundation
 import Security
 
-/// Values you might use as a key type when creating a new Asymetric key.
-@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public enum KeyType {
-    /// RSA algorithm.
-    case RSA
-    /// Elliptic curve algorithm.
-    case ECSECRandom
-    
-    /// Retreive the necessary CFString from the Security framework
-    /// to create attribute dictionary in the key generation process.
-    func attribute() -> CFString {
-        switch self {
-            case .RSA: return kSecAttrKeyTypeRSA
-            case .ECSECRandom: return kSecAttrKeyTypeECSECPrimeRandom
-        }
-    }
-    
+/// Elliptic curve algorithm - ECC requires smaller keys
+/// compared to non-EC cryptography  to provide equivalent security.
+@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public let KeyTypeECSECRandom = KeyType(with: "ECSECRandom", maxLength: 256, stringAttribute: kSecAttrKeyTypeECSECPrimeRandom)
+
+/// RSA algorithm - it is one of the first public-key cryptosystems
+/// and is widely used for secure data transmission.
+/// - Discussion: The ECC generation with `KeyTypeECSECRandom` can be
+///               much faster in comparison to RSA on iOS due to the
+///               smaller key size.
+@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public let KeyTypeRSA = KeyType(with: "RSA", maxLength: 8192, stringAttribute: kSecAttrKeyTypeRSA)
+
+/// A key type specifies an algorithm that is used when generating a
+/// new key for the keychain. This affects the necessary time for
+/// generation as well as the time which is needed to transfer the
+/// key and the encryption / decryption. For your application,
+/// specify one keytype, that is used all over the environment.
+public struct KeyType {
+    public var name: String
     /// Use this to check if the specified key length is not reaching
     /// the system's boundaries for maximum key lenth. This is currently
     /// hardcoded, even though you'd expect this to be available via an
     /// API. WHY?
-    func maxKeyLength() -> Int {
-        switch self {
-            case .RSA: return 8192
-            case .ECSECRandom: return 256
-        }
+    var maxKeyLength: Int
+    /// Retreive the necessary CFString from the Security framework
+    /// to create attribute dictionary in the key generation process.
+    var attribute: CFString
+    
+    init(with rawName: String, maxLength: Int, stringAttribute: CFString) {
+        name = rawName
+        maxKeyLength = maxLength
+        attribute = stringAttribute
     }
 }
-

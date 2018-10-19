@@ -40,7 +40,7 @@ import Security
     ///           random key generation when thrown by `SecKeyCreateRandomKey`. Consider the
     ///           Apple Security Framework documentation for non specified errors thrown within
     ///           this function.
-    static func generatePrivateKeyForKeychain(with tag: String, type: KeyType = .ECSECRandom, keyLength length: Int = 256) throws {
+    static func generatePrivateKeyForKeychain(with tag: String, type: KeyType = KeyTypeECSECRandom, keyLength length: Int = 256) throws {
         // Be sure that you don’t generate multiple, identically tagged keys.
         // These are difficult to tell apart during retrieval, unless they differ in some other,
         // searchable characteristic. Instead, use a unique tag for each key generation operation,
@@ -48,7 +48,7 @@ import Security
         guard tag.count > 0, let tagData = tag.data(using: .utf8) else { throw KeyStoreError.malformedTag }
         
         // Verify that the max key length is not reached
-        guard length > 0, length <= type.maxKeyLength() else { throw KeyStoreError.malformedKeyLength }
+        guard length > 0, length <= type.maxKeyLength else { throw KeyStoreError.malformedKeyLength }
         
         // Delete an already existing private key with the same identifier before safely creating
         // a new key. This prevents cluttering the keychain with double entries and reduces
@@ -58,7 +58,7 @@ import Security
         // Setting up the attributes for the key generation.
         let privateKeyAttributes: [String: Any] = [kSecAttrIsPermanent as String: true,
                                                    kSecAttrApplicationTag as String: tagData]
-        let attributes: [String: Any] = [kSecAttrType as String: type.attribute(),
+        let attributes: [String: Any] = [kSecAttrType as String: type.attribute,
                                         kSecAttrKeySizeInBits as String: length,
                                         kSecPrivateKeyAttrs as String: privateKeyAttributes]
         
@@ -99,7 +99,7 @@ import Security
         let privateKeyAttributes: [String: Any] = [kSecAttrIsPermanent as String: true,
                                                    kSecAttrAccessControl as String: access,
                                                    kSecAttrApplicationTag as String: tagData]
-        let attributes: [String: Any] = [kSecAttrType as String: KeyType.ECSECRandom.attribute(),
+        let attributes: [String: Any] = [kSecAttrType as String: KeyTypeECSECRandom.attribute,
                                          kSecAttrKeySizeInBits as String: 256,
                                          kSecAttrTokenID as String: kSecAttrTokenIDSecureEnclave,
                                          kSecPrivateKeyAttrs as String: privateKeyAttributes]
@@ -238,7 +238,7 @@ extension KeyStore {
     ///           random key generation when thrown by `SecKeyCreateRandomKey`. Consider the
     ///           Apple Security Framework documentation for non specified errors thrown within
     ///           this function.
-    static func foreignPublicKey(with key: String? = nil, tag: String, type: KeyType = .ECSECRandom) throws -> SecKey? {
+    static func foreignPublicKey(with key: String? = nil, tag: String, type: KeyType = KeyTypeECSECRandom) throws -> SecKey? {
         if let key = key {
             try KeyStore.storeForeignPublicKey(key: key, with: tag, type: type)
         }
@@ -286,7 +286,7 @@ extension KeyStore {
     ///           The current default is Eliptic Curves.
     /// - Throws: Can throw a KeyStoreError in case an unexpected creation status occurs
     ///           while trying to add the public key.
-    private static func storeForeignPublicKey(key: String, with tag: String, type: KeyType = .ECSECRandom) throws {
+    private static func storeForeignPublicKey(key: String, with tag: String, type: KeyType = KeyTypeECSECRandom) throws {
         // Be sure that you don’t generate multiple, identically tagged keys.
         // These are difficult to tell apart during retrieval, unless they differ in some other,
         // searchable characteristic. Instead, use a unique tag for each key generation operation,
@@ -305,9 +305,10 @@ extension KeyStore {
                                            kSecValueData as String: keyData,
                                            kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
                                            kSecReturnPersistentRef as String: true]
-        switch type {
-            case .ECSECRandom: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeECSECPrimeRandom
-            case .RSA: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeRSA
+        switch type.attribute {
+            case KeyTypeECSECRandom.attribute: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeECSECPrimeRandom
+            case KeyTypeRSA.attribute: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeRSA
+            default: throw KeyStoreError.malformedKeyType
         }
         
         let creationStatus = SecItemAdd(queryFilter as CFDictionary, nil)
@@ -326,7 +327,7 @@ extension KeyStore {
     ///           The current default is Eliptic Curves.
     /// - Throws: Can throw a KeyStoreError in case an unexpected retrive status occurs
     ///           while trying to fetch the public key.
-    private static func retrieveForeignPublicKey(with tag: String, type: KeyType = .ECSECRandom) throws -> SecKey? {
+    private static func retrieveForeignPublicKey(with tag: String, type: KeyType = KeyTypeECSECRandom) throws -> SecKey? {
         // Be sure that you don’t generate multiple, identically tagged keys.
         // These are difficult to tell apart during retrieval, unless they differ in some other,
         // searchable characteristic. Instead, use a unique tag for each key generation operation,
@@ -339,9 +340,10 @@ extension KeyStore {
                                            kSecAttrApplicationTag as String: tagData,
                                            kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
                                            kSecReturnRef as String: true]
-        switch type {
-            case .ECSECRandom: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeECSECPrimeRandom
-            case .RSA: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeRSA
+        switch type.attribute {
+            case KeyTypeECSECRandom.attribute: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeECSECPrimeRandom
+            case KeyTypeRSA.attribute: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeRSA
+            default: throw KeyStoreError.malformedKeyType
         }
         
         let status = SecItemCopyMatching(queryFilter as CFDictionary, &publicKeyRef)
