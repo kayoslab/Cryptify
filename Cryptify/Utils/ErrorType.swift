@@ -19,11 +19,7 @@
 
 import Foundation
 
-@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public enum KeyStoreError: Error {
-    /// Please check the given key type. It might be the case
-    /// that it was configured for a different platform. Please
-    /// validate with other available key types or raise a bug.
-    case malformedKeyType
+public enum KeyStoreError: Error {
     /// Please check the given key length. It might exceed the
     /// boundaries for the specified key type.
     case malformedKeyLength
@@ -64,7 +60,7 @@ import Foundation
     case unexpectedPublicKeyNil
 }
 
-@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public enum CryptorError: Error {
+public enum CryptorError: Error {
     /// An error occured while trying to retrive a public key with a
     /// specified tag. Either the tag was not correct, the key wasn't
     /// stored into the keychain properly or something else went wrong.

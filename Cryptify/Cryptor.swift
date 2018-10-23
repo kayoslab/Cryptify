@@ -22,7 +22,6 @@ import Security
 
 class Cryptor {
     
-    
     /// Takes a given string object and tries to encrypt it for a specified asymetric communication partner.
     ///
     /// - Parameters:
@@ -41,10 +40,9 @@ class Cryptor {
     ///           this function.
     /// - Discussion: Due to block size limitations, that aren't yet implemented, this is currently not useable.
     @available(*, unavailable, message: "Due to block size limitations, that aren't yet implemented, this is currently not useable.Use encrypt(_:Data,tag:String) instead. ")
-    static func encrypt(plainText: String, with publicKey: String? = nil, algorithm: SecKeyAlgorithm = .eciesEncryptionStandardX963SHA256AESGCM, tag: String, type: KeyType = KeyTypeECSECRandom) throws -> Data? {
-        guard let publicKey = try KeyStore.foreignPublicKey(with: publicKey, tag: tag, type: type) else {
-            throw CryptorError.publicKeyRetriveError
-        }
+    static func encrypt(plainText: String, with publicKey: String? = nil, algorithm: SecKeyAlgorithm = .eciesEncryptionStandardX963SHA256AESGCM, tag: String, type: KeyType) throws -> Data? {
+        let publicKey = try KeyStore.foreignPublicKey(with: publicKey, tag: tag, type: type)
+        
         guard SecKeyIsAlgorithmSupported(publicKey, .encrypt, algorithm) else {
             throw CryptorError.unsupportedAlgorithm
         }
@@ -80,10 +78,9 @@ class Cryptor {
     ///           encryption when thrown by `SecKeyCreateEncryptedData`. Consider the
     ///           Apple Security Framework documentation for non specified errors thrown within
     ///           this function.
-    static func encrypt(data: Data, with publicKey: String? = nil, algorithm: SecKeyAlgorithm = .eciesEncryptionStandardX963SHA256AESGCM, tag: String, type: KeyType = KeyTypeECSECRandom) throws -> Data? {
-        guard let publicKey = try KeyStore.foreignPublicKey(with: publicKey, tag: tag, type: type) else {
-            throw CryptorError.publicKeyRetriveError
-        }
+    static func encrypt(data: Data, with publicKey: String? = nil, algorithm: SecKeyAlgorithm = .eciesEncryptionStandardX963SHA256AESGCM, tag: String, type: KeyType) throws -> Data? {
+        let publicKey = try KeyStore.foreignPublicKey(with: publicKey, tag: tag, type: type)
+        
         guard SecKeyIsAlgorithmSupported(publicKey, .encrypt, algorithm) else {
             throw CryptorError.unsupportedAlgorithm
         }
@@ -111,7 +108,7 @@ class Cryptor {
     ///           encryption when thrown by `SecKeyCreateDecryptedData`. Consider the
     ///           Apple Security Framework documentation for non specified errors thrown within
     ///           this function.
-    static func decrypt(cipherText: Data, algorithm: SecKeyAlgorithm = .eciesEncryptionStandardX963SHA256AESGCM, tag: String, type: KeyType = KeyTypeECSECRandom) throws -> Data? {
+    static func decrypt(cipherText: Data, algorithm: SecKeyAlgorithm = .eciesEncryptionStandardX963SHA256AESGCM, tag: String, type: KeyType) throws -> Data? {
         guard let privateKey = try KeyStore.retrivePrivateKey(with: tag) else {
             throw CryptorError.privateKeyRetriveError
         }

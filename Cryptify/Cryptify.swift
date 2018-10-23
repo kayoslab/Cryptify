@@ -19,34 +19,44 @@
 
 import Foundation
 
-/// Basic public interface of the Cryptify framework.
+/// Basic public interface of the Cryptify framework. You should keep
+/// a singleton reference on this class so that you can ensure to always
+/// use the same KeyType for encryption / decryption / key handling.
 public class Cryptify {
+    private let keyType: KeyType
     
-    /// Singleton interface of the Cryptify framework to prevent
-    /// any concurrent usage of the Key generation.
-    public static var shared: Cryptify = .init()
+    /// Basic public interface of the Cryptify framework. You should keep
+    /// a singleton reference on this class so that you can ensure to always
+    /// use the same KeyType for encryption / decryption / key handling.
+    ///
+    /// - Parameters:
+    ///   - keyType: The specified algorithm that should be used for the key
+    ///              generation and handling.
+    public init(with keyType: KeyType) {
+        self.keyType = keyType
+    }
     
-    /// Private initialiser to actively hide it from the interface,
-    /// since this class will solely be a singleton implementation.
-    private init() { }
-    
-    public func generateKey(with tag: String, type: KeyType = KeyTypeECSECRandom, keyLength length: Int = 256) throws {
-        try KeyStore.generatePrivateKeyForKeychain(with: tag)
+    public func generateKey(with tag: String, keyLength: Int) throws {
+        try KeyStore.generatePrivateKeyForKeychain(with: tag, type: keyType, keyLength: keyLength)
+        print("Key generation finished 🔑")
     }
     
     public func encryptDecryptTest(with tag: String) throws {
         let publicKey = try KeyStore.generateRawPublicKeyForPrivateKey(with: tag)
 
         guard let data = lorem.data(using: .utf8),
-                let encryptedData = try Cryptor.encrypt(data: data, with: publicKey ?? "", tag: tag) else {
-                    print("The encryption raised an error, please investigate")
-                    return
+            let encryptedData = try Cryptor.encrypt(data: data,
+                                                    with: publicKey ?? "",
+                                                    tag: "ExampleGroup.ExampleTag.ExampleRecipient",
+                                                    type: keyType) else {
+                return
         }
         
-        guard let decryptedData = try Cryptor.decrypt(cipherText: encryptedData, tag: tag),
+        guard let decryptedData = try Cryptor.decrypt(cipherText: encryptedData,
+                                                      tag: tag,
+                                                      type: keyType),
                 let plainText = String(data: decryptedData, encoding: .utf8) else {
-                    print("The decryption raised an error, please investigate")
-                    return
+                return
         }
         
         print("The data was succesfully encrypted and decrypted.")

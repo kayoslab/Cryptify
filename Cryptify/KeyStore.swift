@@ -20,7 +20,7 @@
 import Foundation
 import Security
 
-@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) class KeyStore {
+@available(iOS 2.0, watchOS 2.0, tvOS 9.0, OSX 10.12, *) class KeyStore {
     
     /// Generates a private key that is stored into the keychain. While doing this any other
     /// private key with the same tag is deleted from the keychain to prevent double entries
@@ -59,8 +59,11 @@ import Security
         let privateKeyAttributes: [String: Any] = [kSecAttrIsPermanent as String: true,
                                                    kSecAttrApplicationTag as String: tagData]
         let attributes: [String: Any] = [kSecAttrType as String: type.attribute,
-                                        kSecAttrKeySizeInBits as String: length,
-                                        kSecPrivateKeyAttrs as String: privateKeyAttributes]
+                                         kSecAttrCreationDate as String: Date() as CFDate,
+                                         kSecAttrModificationDate as String: Date() as CFDate,
+                                         kSecAttrLabel as String: tag,
+                                         kSecAttrKeySizeInBits as String: length,
+                                         kSecPrivateKeyAttrs as String: privateKeyAttributes]
         
         try KeyStore.createPrivateKey(with: attributes)
     }
@@ -238,7 +241,7 @@ extension KeyStore {
     ///           random key generation when thrown by `SecKeyCreateRandomKey`. Consider the
     ///           Apple Security Framework documentation for non specified errors thrown within
     ///           this function.
-    static func foreignPublicKey(with key: String? = nil, tag: String, type: KeyType = KeyTypeECSECRandom) throws -> SecKey? {
+    static func foreignPublicKey(with key: String? = nil, tag: String, type: KeyType) throws -> SecKey {
         if let key = key {
             try KeyStore.storeForeignPublicKey(key: key, with: tag, type: type)
         }
@@ -286,7 +289,7 @@ extension KeyStore {
     ///           The current default is Eliptic Curves.
     /// - Throws: Can throw a KeyStoreError in case an unexpected creation status occurs
     ///           while trying to add the public key.
-    private static func storeForeignPublicKey(key: String, with tag: String, type: KeyType = KeyTypeECSECRandom) throws {
+    private static func storeForeignPublicKey(key: String, with tag: String, type: KeyType) throws {
         // Be sure that you don’t generate multiple, identically tagged keys.
         // These are difficult to tell apart during retrieval, unless they differ in some other,
         // searchable characteristic. Instead, use a unique tag for each key generation operation,
@@ -300,16 +303,12 @@ extension KeyStore {
         // the possible errors when fetching a key with a given tag.
         try KeyStore.deleteForeignPublicKey(with: tag)
         
-        var queryFilter: [String : Any] = [kSecClass as String: kSecClassKey,
+        let queryFilter: [String : Any] = [kSecClass as String: kSecClassKey,
                                            kSecAttrApplicationTag as String: tagData,
                                            kSecValueData as String: keyData,
+                                           kSecReturnPersistentRef as String: true,
                                            kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
-                                           kSecReturnPersistentRef as String: true]
-        switch type.attribute {
-            case KeyTypeECSECRandom.attribute: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeECSECPrimeRandom
-            case KeyTypeRSA.attribute: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeRSA
-            default: throw KeyStoreError.malformedKeyType
-        }
+                                           kSecAttrKeyType as String: type.attribute]
         
         let creationStatus = SecItemAdd(queryFilter as CFDictionary, nil)
         
@@ -327,7 +326,7 @@ extension KeyStore {
     ///           The current default is Eliptic Curves.
     /// - Throws: Can throw a KeyStoreError in case an unexpected retrive status occurs
     ///           while trying to fetch the public key.
-    private static func retrieveForeignPublicKey(with tag: String, type: KeyType = KeyTypeECSECRandom) throws -> SecKey? {
+    private static func retrieveForeignPublicKey(with tag: String, type: KeyType) throws -> SecKey {
         // Be sure that you don’t generate multiple, identically tagged keys.
         // These are difficult to tell apart during retrieval, unless they differ in some other,
         // searchable characteristic. Instead, use a unique tag for each key generation operation,
@@ -335,19 +334,13 @@ extension KeyStore {
         guard tag.count > 0, let tagData = tag.data(using: .utf8) else { throw KeyStoreError.malformedTag }
         
         var publicKeyRef: CFTypeRef?
-        var queryFilter: [String : Any] = [kSecClass as String: kSecClassKey,
-                                           kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
+        let queryFilter: [String : Any] = [kSecClass as String: kSecClassKey,
                                            kSecAttrApplicationTag as String: tagData,
-                                           kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
-                                           kSecReturnRef as String: true]
-        switch type.attribute {
-            case KeyTypeECSECRandom.attribute: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeECSECPrimeRandom
-            case KeyTypeRSA.attribute: queryFilter[kSecAttrKeyType as String] = kSecAttrKeyTypeRSA
-            default: throw KeyStoreError.malformedKeyType
-        }
+                                           kSecReturnRef as String: true,
+                                           kSecAttrKeyType as String: type.attribute]
         
         let status = SecItemCopyMatching(queryFilter as CFDictionary, &publicKeyRef)
-        guard status != errSecItemNotFound else { return nil }
+        guard status != errSecItemNotFound else { throw CryptorError.publicKeyRetriveError }
         guard status == errSecSuccess else { throw KeyStoreError.unexpectedRetriveStatus(with: status) }
         
         // I hate force unwrapping this, but since this is a CoreFoundation downcast
@@ -355,8 +348,8 @@ extension KeyStore {
         // Let's prey this changes within upcoming swift versions and till then we
         // should at least ensure the KeyRef is not nil. This sometimes happens
         // when there's a mismatch between key and specified kSecAttrKeyType.
-        guard publicKeyRef != nil else { return nil }
-        guard let publicKey = SecKeyCopyPublicKey(publicKeyRef as! SecKey) else { return nil }
+        guard publicKeyRef != nil else { throw CryptorError.publicKeyRetriveError }
+        guard let publicKey = SecKeyCopyPublicKey(publicKeyRef as! SecKey) else { throw CryptorError.publicKeyRetriveError }
         
         return publicKey
     }

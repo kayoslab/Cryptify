@@ -29,7 +29,7 @@ import Security
 /// - Discussion: The ECC generation with `KeyTypeECSECRandom` can be
 ///               much faster in comparison to RSA on iOS due to the
 ///               smaller key size.
-@available(iOS 2.0, watchOS 2.0, tvOS 9.0, *) public let KeyTypeRSA = KeyType(with: "RSA", maxLength: 8192, stringAttribute: kSecAttrKeyTypeRSA)
+@available(iOS 2.0, watchOS 2.0, tvOS 9.0, OSX 10.12, *) public let KeyTypeRSA = KeyType(with: "RSA", maxLength: 8192, stringAttribute: kSecAttrKeyTypeRSA)
 
 /// A key type specifies an algorithm that is used when generating a
 /// new key for the keychain. This affects the necessary time for
