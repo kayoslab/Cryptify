@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>TestApp.xcscheme</key>
+		<key>Cryptify_macOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>TestApp_iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>TestApp_macOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -23,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>5F1925F0216DE02600FB93C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5F8E98242179C23000FCC303</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5FF8410A216E206D00DB4BE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

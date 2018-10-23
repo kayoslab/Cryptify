@@ -18,7 +18,7 @@
  */
 
 import UIKit
-import Cryptify
+import Cryptify_iOS
 
 class ViewController: UIViewController {
 
@@ -26,8 +26,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         do {
-            try Cryptify.shared.generateKey(with: "ExampleGroup.ExampleTag.ExampleUser")
-            try Cryptify.shared.encryptDecryptTest(with: "ExampleGroup.ExampleTag.ExampleUser")
+            let cryptify = Cryptify(with: KeyTypeECSECRandom)
+            try cryptify.generateKey(with: "ExampleGroup.ExampleTag.ExampleUser", keyLength: 256)
+            try cryptify.encryptDecryptTest(with: "ExampleGroup.ExampleTag.ExampleUser")
         } catch {
             dump(error)
         }

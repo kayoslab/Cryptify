@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F1925E7216DE02500FB93C1"
-               BuildableName = "Cryptify_iOS.framework"
-               BlueprintName = "Cryptify_iOS"
+               BlueprintIdentifier = "5FF8410A216E206D00DB4BE3"
+               BuildableName = "TestApp_iOS.app"
+               BlueprintName = "TestApp_iOS"
                ReferencedContainer = "container:Cryptify.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,23 +28,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F1925F0216DE02600FB93C1"
-               BuildableName = "CryptifyTests.xctest"
-               BlueprintName = "CryptifyTests"
-               ReferencedContainer = "container:Cryptify.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F1925E7216DE02500FB93C1"
-            BuildableName = "Cryptify_iOS.framework"
-            BlueprintName = "Cryptify_iOS"
+            BlueprintIdentifier = "5FF8410A216E206D00DB4BE3"
+            BuildableName = "TestApp_iOS.app"
+            BlueprintName = "TestApp_iOS"
             ReferencedContainer = "container:Cryptify.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F1925E7216DE02500FB93C1"
-            BuildableName = "Cryptify_iOS.framework"
-            BlueprintName = "Cryptify_iOS"
+            BlueprintIdentifier = "5FF8410A216E206D00DB4BE3"
+            BuildableName = "TestApp_iOS.app"
+            BlueprintName = "TestApp_iOS"
             ReferencedContainer = "container:Cryptify.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F1925E7216DE02500FB93C1"
-            BuildableName = "Cryptify_iOS.framework"
-            BlueprintName = "Cryptify_iOS"
+            BlueprintIdentifier = "5FF8410A216E206D00DB4BE3"
+            BuildableName = "TestApp_iOS.app"
+            BlueprintName = "TestApp_iOS"
             ReferencedContainer = "container:Cryptify.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

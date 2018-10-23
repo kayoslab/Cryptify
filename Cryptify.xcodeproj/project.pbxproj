@@ -7,40 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F1925F9216DE02600FB93C1 /* Cryptify.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F1925EB216DE02500FB93C1 /* Cryptify.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F192603216DE03A00FB93C1 /* Cryptify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192602216DE03A00FB93C1 /* Cryptify.swift */; };
-		5F192605216DE2FD00FB93C1 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192604216DE2FD00FB93C1 /* KeyStore.swift */; };
-		5F192608216DED7A00FB93C1 /* KeyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192607216DED7A00FB93C1 /* KeyType.swift */; };
-		5F19260A216DF9DF00FB93C1 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192609216DF9DF00FB93C1 /* ErrorType.swift */; };
+		5F1925F9216DE02600FB93C1 /* Cryptify_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F1925EB216DE02500FB93C1 /* Cryptify_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F8E98292179C23000FCC303 /* Cryptify_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8E98272179C23000FCC303 /* Cryptify_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F8E982E2179C24900FCC303 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E982D2179C24900FCC303 /* Default-568h@2x.png */; };
+		5F8E98352179C38F00FCC303 /* Cryptify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192602216DE03A00FB93C1 /* Cryptify.swift */; };
+		5F8E98362179C39200FCC303 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192604216DE2FD00FB93C1 /* KeyStore.swift */; };
+		5F8E98372179C39300FCC303 /* Cryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF84126216F340700DB4BE3 /* Cryptor.swift */; };
+		5F8E98382179C39600FCC303 /* KeyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192607216DED7A00FB93C1 /* KeyType.swift */; };
+		5F8E98392179C39900FCC303 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192609216DF9DF00FB93C1 /* ErrorType.swift */; };
+		5F8E983A2179C3A100FCC303 /* Cryptify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192602216DE03A00FB93C1 /* Cryptify.swift */; };
+		5F8E983B2179C3A300FCC303 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192604216DE2FD00FB93C1 /* KeyStore.swift */; };
+		5F8E983C2179C3A600FCC303 /* Cryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF84126216F340700DB4BE3 /* Cryptor.swift */; };
+		5F8E983D2179C3A900FCC303 /* KeyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192607216DED7A00FB93C1 /* KeyType.swift */; };
+		5F8E983E2179C3AC00FCC303 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192609216DF9DF00FB93C1 /* ErrorType.swift */; };
+		5F8E983F2179C3B700FCC303 /* Cryptify_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify_iOS.framework */; };
+		5F8E98402179C3B700FCC303 /* Cryptify_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5F8E984B2179C67300FCC303 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E984A2179C67300FCC303 /* AppDelegate.swift */; };
+		5F8E984D2179C67300FCC303 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E984C2179C67300FCC303 /* ViewController.swift */; };
+		5F8E984F2179C67400FCC303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E984E2179C67400FCC303 /* Assets.xcassets */; };
+		5F8E98522179C67400FCC303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E98502179C67400FCC303 /* Main.storyboard */; };
+		5F8E98582179C6D400FCC303 /* Cryptify_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8E98252179C23000FCC303 /* Cryptify_macOS.framework */; };
 		5FF8410E216E206D00DB4BE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8410D216E206D00DB4BE3 /* AppDelegate.swift */; };
 		5FF84110216E206D00DB4BE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8410F216E206D00DB4BE3 /* ViewController.swift */; };
 		5FF84113216E206D00DB4BE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF84111216E206D00DB4BE3 /* Main.storyboard */; };
 		5FF84115216E206F00DB4BE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF84114216E206F00DB4BE3 /* Assets.xcassets */; };
 		5FF84118216E206F00DB4BE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF84116216E206F00DB4BE3 /* LaunchScreen.storyboard */; };
-		5FF8411E216E20C700DB4BE3 /* Cryptify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */; };
-		5FF8411F216E2A9000DB4BE3 /* Cryptify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */; };
-		5FF84120216E2A9000DB4BE3 /* Cryptify.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5FF84127216F340700DB4BE3 /* Cryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF84126216F340700DB4BE3 /* Cryptor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5FF84121216E2A9000DB4BE3 /* PBXContainerItemProxy */ = {
+		5F8E98412179C3B700FCC303 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5F1925DF216DE02500FB93C1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5F1925E7216DE02500FB93C1;
-			remoteInfo = Cryptify;
+			remoteInfo = Cryptify_iOS;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5FF84123216E2A9000DB4BE3 /* Embed Frameworks */ = {
+		5F8E98432179C3B700FCC303 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5FF84120216E2A9000DB4BE3 /* Cryptify.framework in Embed Frameworks */,
+				5F8E98402179C3B700FCC303 /* Cryptify_iOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,14 +59,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5F1925E8216DE02500FB93C1 /* Cryptify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cryptify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F1925EB216DE02500FB93C1 /* Cryptify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cryptify.h; sourceTree = "<group>"; };
+		5F1925E8216DE02500FB93C1 /* Cryptify_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cryptify_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F1925EB216DE02500FB93C1 /* Cryptify_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cryptify_iOS.h; sourceTree = "<group>"; };
 		5F1925EC216DE02500FB93C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F192602216DE03A00FB93C1 /* Cryptify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptify.swift; sourceTree = "<group>"; };
 		5F192604216DE2FD00FB93C1 /* KeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
 		5F192607216DED7A00FB93C1 /* KeyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyType.swift; sourceTree = "<group>"; };
 		5F192609216DF9DF00FB93C1 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
-		5FF8410B216E206D00DB4BE3 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8E98252179C23000FCC303 /* Cryptify_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cryptify_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8E98272179C23000FCC303 /* Cryptify_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cryptify_macOS.h; sourceTree = "<group>"; };
+		5F8E98282179C23000FCC303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F8E982D2179C24900FCC303 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5F8E98482179C67300FCC303 /* TestApp_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8E984A2179C67300FCC303 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5F8E984C2179C67300FCC303 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5F8E984E2179C67400FCC303 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5F8E98512179C67400FCC303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5F8E98532179C67400FCC303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F8E98542179C67400FCC303 /* TestApp_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp_macOS.entitlements; sourceTree = "<group>"; };
+		5F8E985A2179D93D00FCC303 /* TestApp_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp_iOS.entitlements; sourceTree = "<group>"; };
+		5FF8410B216E206D00DB4BE3 /* TestApp_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF8410D216E206D00DB4BE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FF8410F216E206D00DB4BE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5FF84112216E206D00DB4BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,12 +96,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F8E98222179C23000FCC303 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F8E98452179C67300FCC303 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8E98582179C6D400FCC303 /* Cryptify_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FF84108216E206D00DB4BE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FF8411F216E2A9000DB4BE3 /* Cryptify.framework in Frameworks */,
-				5FF8411E216E20C700DB4BE3 /* Cryptify.framework in Frameworks */,
+				5F8E983F2179C3B700FCC303 /* Cryptify_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,8 +125,12 @@
 		5F1925DE216DE02500FB93C1 = {
 			isa = PBXGroup;
 			children = (
-				5F1925EA216DE02500FB93C1 /* Cryptify */,
-				5FF8410C216E206D00DB4BE3 /* TestApp */,
+				5F8E982D2179C24900FCC303 /* Default-568h@2x.png */,
+				5F8E98342179C34500FCC303 /* Cryptify */,
+				5F1925EA216DE02500FB93C1 /* Cryptify_iOS */,
+				5F8E98262179C23000FCC303 /* Cryptify_macOS */,
+				5FF8410C216E206D00DB4BE3 /* TestApp_iOS */,
+				5F8E98492179C67300FCC303 /* TestApp_macOS */,
 				5F1925E9216DE02500FB93C1 /* Products */,
 				5FF8411D216E20C700DB4BE3 /* Frameworks */,
 			);
@@ -98,23 +139,21 @@
 		5F1925E9216DE02500FB93C1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F1925E8216DE02500FB93C1 /* Cryptify.framework */,
-				5FF8410B216E206D00DB4BE3 /* TestApp.app */,
+				5F1925E8216DE02500FB93C1 /* Cryptify_iOS.framework */,
+				5FF8410B216E206D00DB4BE3 /* TestApp_iOS.app */,
+				5F8E98252179C23000FCC303 /* Cryptify_macOS.framework */,
+				5F8E98482179C67300FCC303 /* TestApp_macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5F1925EA216DE02500FB93C1 /* Cryptify */ = {
+		5F1925EA216DE02500FB93C1 /* Cryptify_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				5F1925EB216DE02500FB93C1 /* Cryptify.h */,
-				5F192602216DE03A00FB93C1 /* Cryptify.swift */,
-				5F192604216DE2FD00FB93C1 /* KeyStore.swift */,
-				5FF84126216F340700DB4BE3 /* Cryptor.swift */,
-				5F192606216DED7200FB93C1 /* Utils */,
+				5F1925EB216DE02500FB93C1 /* Cryptify_iOS.h */,
 				5F1925EC216DE02500FB93C1 /* Info.plist */,
 			);
-			path = Cryptify;
+			path = Cryptify_iOS;
 			sourceTree = "<group>";
 		};
 		5F192606216DED7200FB93C1 /* Utils */ = {
@@ -126,9 +165,43 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		5FF8410C216E206D00DB4BE3 /* TestApp */ = {
+		5F8E98262179C23000FCC303 /* Cryptify_macOS */ = {
 			isa = PBXGroup;
 			children = (
+				5F8E98272179C23000FCC303 /* Cryptify_macOS.h */,
+				5F8E98282179C23000FCC303 /* Info.plist */,
+			);
+			path = Cryptify_macOS;
+			sourceTree = "<group>";
+		};
+		5F8E98342179C34500FCC303 /* Cryptify */ = {
+			isa = PBXGroup;
+			children = (
+				5F192602216DE03A00FB93C1 /* Cryptify.swift */,
+				5F192604216DE2FD00FB93C1 /* KeyStore.swift */,
+				5FF84126216F340700DB4BE3 /* Cryptor.swift */,
+				5F192606216DED7200FB93C1 /* Utils */,
+			);
+			path = Cryptify;
+			sourceTree = "<group>";
+		};
+		5F8E98492179C67300FCC303 /* TestApp_macOS */ = {
+			isa = PBXGroup;
+			children = (
+				5F8E984A2179C67300FCC303 /* AppDelegate.swift */,
+				5F8E984C2179C67300FCC303 /* ViewController.swift */,
+				5F8E984E2179C67400FCC303 /* Assets.xcassets */,
+				5F8E98502179C67400FCC303 /* Main.storyboard */,
+				5F8E98532179C67400FCC303 /* Info.plist */,
+				5F8E98542179C67400FCC303 /* TestApp_macOS.entitlements */,
+			);
+			path = TestApp_macOS;
+			sourceTree = "<group>";
+		};
+		5FF8410C216E206D00DB4BE3 /* TestApp_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5F8E985A2179D93D00FCC303 /* TestApp_iOS.entitlements */,
 				5FF8410D216E206D00DB4BE3 /* AppDelegate.swift */,
 				5FF8410F216E206D00DB4BE3 /* ViewController.swift */,
 				5FF84111216E206D00DB4BE3 /* Main.storyboard */,
@@ -136,7 +209,7 @@
 				5FF84114216E206F00DB4BE3 /* Assets.xcassets */,
 				5FF84119216E206F00DB4BE3 /* Info.plist */,
 			);
-			path = TestApp;
+			path = TestApp_iOS;
 			sourceTree = "<group>";
 		};
 		5FF8411D216E20C700DB4BE3 /* Frameworks */ = {
@@ -153,16 +226,24 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F1925F9216DE02600FB93C1 /* Cryptify.h in Headers */,
+				5F1925F9216DE02600FB93C1 /* Cryptify_iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F8E98202179C23000FCC303 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8E98292179C23000FCC303 /* Cryptify_macOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5F1925E7216DE02500FB93C1 /* Cryptify */ = {
+		5F1925E7216DE02500FB93C1 /* Cryptify_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F1925FC216DE02600FB93C1 /* Build configuration list for PBXNativeTarget "Cryptify" */;
+			buildConfigurationList = 5F1925FC216DE02600FB93C1 /* Build configuration list for PBXNativeTarget "Cryptify_iOS" */;
 			buildPhases = (
 				5F1925E3216DE02500FB93C1 /* Headers */,
 				5F1925E4216DE02500FB93C1 /* Sources */,
@@ -173,28 +254,63 @@
 			);
 			dependencies = (
 			);
-			name = Cryptify;
+			name = Cryptify_iOS;
 			productName = Cryptify;
-			productReference = 5F1925E8216DE02500FB93C1 /* Cryptify.framework */;
+			productReference = 5F1925E8216DE02500FB93C1 /* Cryptify_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5FF8410A216E206D00DB4BE3 /* TestApp */ = {
+		5F8E98242179C23000FCC303 /* Cryptify_macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FF8411A216E206F00DB4BE3 /* Build configuration list for PBXNativeTarget "TestApp" */;
+			buildConfigurationList = 5F8E982A2179C23000FCC303 /* Build configuration list for PBXNativeTarget "Cryptify_macOS" */;
 			buildPhases = (
-				5FF84107216E206D00DB4BE3 /* Sources */,
-				5FF84108216E206D00DB4BE3 /* Frameworks */,
-				5FF84109216E206D00DB4BE3 /* Resources */,
-				5FF84123216E2A9000DB4BE3 /* Embed Frameworks */,
+				5F8E98202179C23000FCC303 /* Headers */,
+				5F8E98212179C23000FCC303 /* Sources */,
+				5F8E98222179C23000FCC303 /* Frameworks */,
+				5F8E98232179C23000FCC303 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5FF84122216E2A9000DB4BE3 /* PBXTargetDependency */,
 			);
-			name = TestApp;
+			name = Cryptify_macOS;
+			productName = Cryptify_macos;
+			productReference = 5F8E98252179C23000FCC303 /* Cryptify_macOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5F8E98472179C67300FCC303 /* TestApp_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F8E98552179C67400FCC303 /* Build configuration list for PBXNativeTarget "TestApp_macOS" */;
+			buildPhases = (
+				5F8E98442179C67300FCC303 /* Sources */,
+				5F8E98452179C67300FCC303 /* Frameworks */,
+				5F8E98462179C67300FCC303 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestApp_macOS;
+			productName = TestApp_macOS;
+			productReference = 5F8E98482179C67300FCC303 /* TestApp_macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5FF8410A216E206D00DB4BE3 /* TestApp_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FF8411A216E206F00DB4BE3 /* Build configuration list for PBXNativeTarget "TestApp_iOS" */;
+			buildPhases = (
+				5FF84107216E206D00DB4BE3 /* Sources */,
+				5FF84108216E206D00DB4BE3 /* Frameworks */,
+				5FF84109216E206D00DB4BE3 /* Resources */,
+				5F8E98432179C3B700FCC303 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F8E98422179C3B700FCC303 /* PBXTargetDependency */,
+			);
+			name = TestApp_iOS;
 			productName = TestApp;
-			productReference = 5FF8410B216E206D00DB4BE3 /* TestApp.app */;
+			productReference = 5FF8410B216E206D00DB4BE3 /* TestApp_iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -211,8 +327,24 @@
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1000;
 					};
+					5F8E98242179C23000FCC303 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					5F8E98472179C67300FCC303 = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
 					5FF8410A216E206D00DB4BE3 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -229,8 +361,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F1925E7216DE02500FB93C1 /* Cryptify */,
-				5FF8410A216E206D00DB4BE3 /* TestApp */,
+				5F1925E7216DE02500FB93C1 /* Cryptify_iOS */,
+				5F8E98242179C23000FCC303 /* Cryptify_macOS */,
+				5FF8410A216E206D00DB4BE3 /* TestApp_iOS */,
+				5F8E98472179C67300FCC303 /* TestApp_macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -243,11 +377,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F8E98232179C23000FCC303 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F8E98462179C67300FCC303 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8E984F2179C67400FCC303 /* Assets.xcassets in Resources */,
+				5F8E98522179C67400FCC303 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FF84109216E206D00DB4BE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5FF84118216E206F00DB4BE3 /* LaunchScreen.storyboard in Resources */,
+				5F8E982E2179C24900FCC303 /* Default-568h@2x.png in Resources */,
 				5FF84115216E206F00DB4BE3 /* Assets.xcassets in Resources */,
 				5FF84113216E206D00DB4BE3 /* Main.storyboard in Resources */,
 			);
@@ -260,11 +411,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F192608216DED7A00FB93C1 /* KeyType.swift in Sources */,
-				5F192603216DE03A00FB93C1 /* Cryptify.swift in Sources */,
-				5F19260A216DF9DF00FB93C1 /* ErrorType.swift in Sources */,
-				5FF84127216F340700DB4BE3 /* Cryptor.swift in Sources */,
-				5F192605216DE2FD00FB93C1 /* KeyStore.swift in Sources */,
+				5F8E983A2179C3A100FCC303 /* Cryptify.swift in Sources */,
+				5F8E983B2179C3A300FCC303 /* KeyStore.swift in Sources */,
+				5F8E983C2179C3A600FCC303 /* Cryptor.swift in Sources */,
+				5F8E983D2179C3A900FCC303 /* KeyType.swift in Sources */,
+				5F8E983E2179C3AC00FCC303 /* ErrorType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F8E98212179C23000FCC303 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8E98352179C38F00FCC303 /* Cryptify.swift in Sources */,
+				5F8E98362179C39200FCC303 /* KeyStore.swift in Sources */,
+				5F8E98372179C39300FCC303 /* Cryptor.swift in Sources */,
+				5F8E98382179C39600FCC303 /* KeyType.swift in Sources */,
+				5F8E98392179C39900FCC303 /* ErrorType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F8E98442179C67300FCC303 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8E984D2179C67300FCC303 /* ViewController.swift in Sources */,
+				5F8E984B2179C67300FCC303 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,14 +452,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5FF84122216E2A9000DB4BE3 /* PBXTargetDependency */ = {
+		5F8E98422179C3B700FCC303 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5F1925E7216DE02500FB93C1 /* Cryptify */;
-			targetProxy = 5FF84121216E2A9000DB4BE3 /* PBXContainerItemProxy */;
+			target = 5F1925E7216DE02500FB93C1 /* Cryptify_iOS */;
+			targetProxy = 5F8E98412179C3B700FCC303 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5F8E98502179C67400FCC303 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F8E98512179C67400FCC303 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		5FF84111216E206D00DB4BE3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -440,14 +620,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Cryptify/Info.plist;
+				INFOPLIST_FILE = Cryptify_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.cr0ss.Cryptify;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cr0ss.cryptify-ios";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -468,14 +648,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Cryptify/Info.plist;
+				INFOPLIST_FILE = Cryptify_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.cr0ss.Cryptify;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cr0ss.cryptify-ios";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -484,19 +664,120 @@
 			};
 			name = Release;
 		};
+		5F8E982B2179C23000FCC303 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = C5HCUYE57C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Cryptify_macos/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cr0ss.Cryptify-macos";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		5F8E982C2179C23000FCC303 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = C5HCUYE57C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Cryptify_macos/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cr0ss.Cryptify-macos";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		5F8E98562179C67400FCC303 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TestApp_macOS/TestApp_macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = C5HCUYE57C;
+				INFOPLIST_FILE = TestApp_macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cr0ss.TestApp-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		5F8E98572179C67400FCC303 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TestApp_macOS/TestApp_macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = C5HCUYE57C;
+				INFOPLIST_FILE = TestApp_macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cr0ss.TestApp-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		5FF8411B216E206F00DB4BE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TestApp_iOS/TestApp_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5HCUYE57C;
-				INFOPLIST_FILE = TestApp/Info.plist;
+				INFOPLIST_FILE = TestApp_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.cr0ss.TestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cr0ss.TestApp-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,14 +789,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TestApp_iOS/TestApp_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5HCUYE57C;
-				INFOPLIST_FILE = TestApp/Info.plist;
+				INFOPLIST_FILE = TestApp_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.cr0ss.TestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cr0ss.TestApp-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -534,7 +816,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F1925FC216DE02600FB93C1 /* Build configuration list for PBXNativeTarget "Cryptify" */ = {
+		5F1925FC216DE02600FB93C1 /* Build configuration list for PBXNativeTarget "Cryptify_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F1925FD216DE02600FB93C1 /* Debug */,
@@ -543,7 +825,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5FF8411A216E206F00DB4BE3 /* Build configuration list for PBXNativeTarget "TestApp" */ = {
+		5F8E982A2179C23000FCC303 /* Build configuration list for PBXNativeTarget "Cryptify_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F8E982B2179C23000FCC303 /* Debug */,
+				5F8E982C2179C23000FCC303 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F8E98552179C67400FCC303 /* Build configuration list for PBXNativeTarget "TestApp_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F8E98562179C67400FCC303 /* Debug */,
+				5F8E98572179C67400FCC303 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FF8411A216E206F00DB4BE3 /* Build configuration list for PBXNativeTarget "TestApp_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5FF8411B216E206F00DB4BE3 /* Debug */,

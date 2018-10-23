@@ -19,11 +19,11 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for Cryptify.
-FOUNDATION_EXPORT double CryptifyVersionNumber;
+//! Project version number for Cryptify_iOS.
+FOUNDATION_EXPORT double Cryptify_iOSVersionNumber;
 
-//! Project version string for Cryptify.
-FOUNDATION_EXPORT const unsigned char CryptifyVersionString[];
+//! Project version string for Cryptify_iOS.
+FOUNDATION_EXPORT const unsigned char Cryptify_iOSVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Cryptify/PublicHeader.h>
 
