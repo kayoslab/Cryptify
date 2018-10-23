@@ -5,3 +5,7 @@
 ## Current Progress
 
 *Cryptify* is currently a work in progress. Key Storage and Encryption / Decryption of Data is working on iOS and seems to be free of any errors. Next step is building an easier interface and starting with the integration of a Key-Exchange process.
+
+## macOS
+
+Currently I'm experiencing problems regarding [radar-24575784](http://www.openradar.appspot.com/24575784) related to which a further implementation on macOS is currently blocked. Check the [mac-os](https://github.com/kayoslab/Cryptify/tree/mac-os) branch for reference.
