@@ -24,10 +24,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let cryptify = Cryptify(with: KeyTypeECSECRandom)
         // Do any additional setup after loading the view, typically from a nib.
         do {
-            try Cryptify.shared.generateKey(with: "ExampleGroup.ExampleTag.ExampleUser")
-            try Cryptify.shared.encryptDecryptTest(with: "ExampleGroup.ExampleTag.ExampleUser")
+            try cryptify.generateKey(with: "ExampleGroup.ExampleTag.ExampleUser", keyLength: 256)
+            try cryptify.encryptDecryptTest(with: "ExampleGroup.ExampleTag.ExampleUser")
         } catch {
             dump(error)
         }
